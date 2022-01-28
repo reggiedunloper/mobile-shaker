@@ -21,7 +21,7 @@
 
       function checkMovement() {
         console.log(state);
-        document.querySelector('#state').innerText = state;
+        // document.querySelector('#state').innerText = state;
 
         if(state == 0 && totalvalue > 1000) {
           // you've rolled enough, give us a random value
@@ -29,7 +29,7 @@
           document.querySelector('#random').innerText = randomvalue;
           // reset total for next roll
           totalvalue = 0;
-          document.querySelector('#status').innerText = "STOPPED";
+          // document.querySelector('#status').innerText = "STOPPED";
         }
       }
 
@@ -37,7 +37,7 @@
         if (amount > 10) {
           state = 1;
           totalvalue = totalvalue + amount
-          document.querySelector('h2').innerText = totalvalue
+          // document.querySelector('h2').innerText = totalvalue
         } else {
           state = 0;
         }
