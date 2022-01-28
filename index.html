@@ -14,8 +14,8 @@
     <script>
 
       function updateTotal(amount) {
-        if (amount > .5) {
-          let currvalue = document.querySelector('h2').innerText
+        if (amount > 1) {
+          let currvalue = Number(document.querySelector('h2').innerText)
           currvalue = currvalue + amount
         document.querySelector('h2').innerText = currvalue
         }
