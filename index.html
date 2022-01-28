@@ -45,11 +45,6 @@
         var ymovement = Math.abs(event.acceleration.y);
         var zmovement = Math.abs(event.acceleration.z);
 
-
-        document.querySelector('#x').innerText = xmovement
-        document.querySelector('#y').innerText = ymovement
-        document.querySelector('#z').innerText = zmovement
-
         updateTotal(xmovement + ymovement + zmovement);
 
       }
