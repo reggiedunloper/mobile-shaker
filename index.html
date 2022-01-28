@@ -18,7 +18,7 @@
       let intervalid = setInterval(checkMovement, 500, state);
 
       function checkMovement(currstate) {
-        if(!state && totalvalue > 1000) {
+        if(currstate == 0 && totalvalue > 1000) {
           // you've rolled enough, give us a random value
           const randomvalue = Math.random()*100;
           document.querySelector('#random').innerText = randomvalue;
