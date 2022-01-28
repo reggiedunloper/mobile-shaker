@@ -6,10 +6,8 @@
   <body>
     <main>
       <h1>Test Shaker 1</h1>
-      <h2>50</h2>
-      <p id="x">0</p>
-      <p id="y">0</p>
-      <p id="z">0</p>
+      <h1 id="random"></h1>
+      <h2>0</h2>
       <p id="status"></p>
     </main>
     <script>
@@ -17,12 +15,15 @@
       let totalvalue = Number(document.querySelector('h2').innerText);
       let state = 0;
 
-      let intervalid = setInterval(checkMovement, 1000, state);
+      let intervalid = setInterval(checkMovement, 500, state);
 
       function checkMovement(currstate) {
-        if(state) {
-          document.querySelector('#status').innerText = "MOVING";
-        } else {
+        if(!state && totalvalue > 1000) {
+          // you've rolled enough, give us a random value
+          const randomvalue = Math.random()*100;
+          document.querySelector('#random').innerText = randomvalue;
+          // reset total for next roll
+          totalvalue = 0;
           document.querySelector('#status').innerText = "STOPPED";
         }
       }
