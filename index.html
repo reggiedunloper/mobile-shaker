@@ -21,10 +21,9 @@
 
       function checkMovement(currstate) {
         if(state) {
-          document.querySelector('#status') = "MOVING"
+          document.querySelector('#status').innerText = "MOVING";
         } else {
-          document.querySelector('#status') = "STOPPED"
-
+          document.querySelector('#status').innerText = "STOPPED";
         }
       }
 
