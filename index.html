@@ -14,14 +14,18 @@
     <script>
 
       function updateTotal(amount) {
-        document.querySelector('h2').innerText = amount
+        if (amount > .5) {
+          let currvalue = document.querySelector('h2').innerText
+          currvalue = currvalue + amount
+        document.querySelector('h2').innerText = currvalue
+        }
       }
 
       function handleMotionEvent(event) {
         console.log(event);
-        var xmovement = Math.abs(event.accelerationIncludingGravity.x);
-        var ymovement = Math.abs(event.accelerationIncludingGravity.y);
-        var zmovement = Math.abs(event.accelerationIncludingGravity.z);
+        var xmovement = Math.abs(event.acceleration.x);
+        var ymovement = Math.abs(event.acceleration.y);
+        var zmovement = Math.abs(event.acceleration.z);
 
 
         document.querySelector('#x').innerText = xmovement
