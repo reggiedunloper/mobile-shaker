@@ -9,19 +9,20 @@
       <h1 id="random"></h1>
       <h2>0</h2>
       <p id="status"></p>
-      <p id="state"></p>
+      <p id="state">0</p>
     </main>
     <script>
 
       let totalvalue = Number(document.querySelector('h2').innerText);
       let state = 0;
 
-      let intervalid = setInterval(checkMovement, 500, state);
+      let intervalid = setInterval(checkMovement, 500);
 
-      function checkMovement(currstate) {
-        document.querySelector('#state').innerText = currstate;
+      function checkMovement() {
+        console.log(state);
+        document.querySelector('#state').innerText = state;
 
-        if(currstate === 0 && totalvalue > 1000) {
+        if(state === 0 && totalvalue > 1000) {
           // you've rolled enough, give us a random value
           let randomvalue = Math.random()*100;
           document.querySelector('#random').innerText = randomvalue;
@@ -38,7 +39,7 @@
           currvalue = currvalue + amount
           document.querySelector('h2').innerText = currvalue
         } else {
-          // state = 0;
+          state = 0;
         }
       }
 
@@ -52,7 +53,14 @@
 
       }
 
+      function testclick(event) {
+
+        updateTotal(100);
+
+      }
+
       window.addEventListener("devicemotion", handleMotionEvent, true);
+      window.addEventListener("click", testclick, true);
     </script>
   </body>
 </html>
