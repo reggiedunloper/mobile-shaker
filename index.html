@@ -6,7 +6,7 @@
   <body>
     <main>
       <h1>Test Shaker 1</h1>
-      <h2>0</h2>
+      <h2>50</h2>
       <p id="x">0</p>
       <p id="y">0</p>
       <p id="z">0</p>
@@ -14,21 +14,28 @@
     </main>
     <script>
 
-      let intervalid = setInterval(checkMovement, 1000, Number(document.querySelector('h2').innerText));
+      let totalvalue = Number(document.querySelector('h2').innerText);
+      let state = 0;
 
-      function checkMovement(currvalue) {
-        if (currvalue === Number(document.querySelector('h2').innerText)) {
-          document.querySelector("#status").innerText = "STOPPED"
+      let intervalid = setInterval(checkMovement, 1000, state);
+
+      function checkMovement(currstate) {
+        if(state) {
+          document.querySelector('#status') = "MOVING"
         } else {
-          document.querySelector("#status").innerText = "STILL SPINNING"
+          document.querySelector('#status') = "STOPPED"
+
         }
       }
 
       function updateTotal(amount) {
         if (amount > 10) {
+          state = 1;
           let currvalue = Number(document.querySelector('h2').innerText)
           currvalue = currvalue + amount
-        document.querySelector('h2').innerText = currvalue
+          document.querySelector('h2').innerText = currvalue
+        } else {
+          state = 0;
         }
       }
 
