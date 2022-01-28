@@ -9,6 +9,7 @@
       <h1 id="random"></h1>
       <h2>0</h2>
       <p id="status"></p>
+      <p id="state"></p>
     </main>
     <script>
 
@@ -18,9 +19,11 @@
       let intervalid = setInterval(checkMovement, 500, state);
 
       function checkMovement(currstate) {
-        if(currstate == 0 && totalvalue > 1000) {
+        document.querySelector('#state').innerText = currstate;
+
+        if(currstate === 0 && totalvalue > 1000) {
           // you've rolled enough, give us a random value
-          const randomvalue = Math.random()*100;
+          let randomvalue = Math.random()*100;
           document.querySelector('#random').innerText = randomvalue;
           // reset total for next roll
           totalvalue = 0;
