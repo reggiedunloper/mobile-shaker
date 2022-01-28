@@ -5,7 +5,7 @@
   </head>
   <body>
     <main>
-      <h1>Test Shaker 1</h1>
+      <h1>Shake Your Phone</h1>
       <h1 id="random"></h1>
       <h2>0</h2>
       <p id="status"></p>
@@ -24,7 +24,7 @@
 
         if(state == 0 && totalvalue > 1000) {
           // you've rolled enough, give us a random value
-          let randomvalue = Math.random()*100;
+          let randomvalue = Math.round(Math.random()*100);
           document.querySelector('#random').innerText = randomvalue;
           // reset total for next roll
           totalvalue = 0;
