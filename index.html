@@ -7,6 +7,9 @@
     <main>
       <h1>Test Shaker</h1>
       <h2>0</h2>
+      <p id="x">0</p>
+      <p id="y">0</p>
+      <p id="z">0</p>
     </main>
     <script>
 
@@ -19,6 +22,11 @@
         var xmovement = Math.abs(event.accelerationIncludingGravity.x);
         var ymovement = Math.abs(event.accelerationIncludingGravity.y);
         var zmovement = Math.abs(event.accelerationIncludingGravity.z);
+
+
+        document.querySelector('#x').innerText = xmovement
+        document.querySelector('#y').innerText = ymovement
+        document.querySelector('#z').innerText = zmovement
 
         updateTotal(xmovement + ymovement + zmovement);
 
