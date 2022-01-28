@@ -13,7 +13,7 @@
     </main>
     <script>
 
-      let totalvalue = Number(document.querySelector('h2').innerText);
+      let totalvalue = 0;
       let state = 0;
 
       let intervalid = setInterval(checkMovement, 500);
@@ -35,9 +35,8 @@
       function updateTotal(amount) {
         if (amount > 10) {
           state = 1;
-          let currvalue = Number(document.querySelector('h2').innerText)
-          currvalue = currvalue + amount
-          document.querySelector('h2').innerText = currvalue
+          totalvalue = totalvalue + amount
+          document.querySelector('h2').innerText = totalvalue
         } else {
           state = 0;
         }
