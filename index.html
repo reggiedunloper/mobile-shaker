@@ -8,9 +8,6 @@
     <main>
       <h1 style="text-align:center; font-size:2rem;">Shake Your Phone</h1>
       <h1 id="random" style="font-size:5rem; text-align:center;"></h1>
-      <!-- <h2>0</h2>
-      <p id="status"></p>
-      <p id="state">0</p> -->
     </main>
     <script>
 
@@ -20,16 +17,12 @@
       let intervalid = setInterval(checkMovement, 500);
 
       function checkMovement() {
-        console.log(state);
-        // document.querySelector('#state').innerText = state;
-
         if(state == 0 && totalvalue > 1000) {
           // you've rolled enough, give us a random value
           let randomvalue = Math.round(Math.random()*100);
           document.querySelector('#random').innerText = randomvalue;
           // reset total for next roll
           totalvalue = 0;
-          // document.querySelector('#status').innerText = "STOPPED";
         }
       }
 
@@ -37,30 +30,20 @@
         if (amount > 10) {
           state = 1;
           totalvalue = totalvalue + amount
-          // document.querySelector('h2').innerText = totalvalue
         } else {
           state = 0;
         }
       }
 
       function handleMotionEvent(event) {
-        console.log(event);
         var xmovement = Math.abs(event.acceleration.x);
         var ymovement = Math.abs(event.acceleration.y);
         var zmovement = Math.abs(event.acceleration.z);
 
         updateTotal(xmovement + ymovement + zmovement);
-
-      }
-
-      function testclick(event) {
-
-        updateTotal(100);
-
       }
 
       window.addEventListener("devicemotion", handleMotionEvent, true);
-      window.addEventListener("click", testclick, true);
     </script>
   </body>
 </html>
